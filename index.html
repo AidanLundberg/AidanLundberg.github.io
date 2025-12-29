@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aidan's Running Info</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Reenie+Beanie&display=swap" rel="stylesheet">
+
+    <style>
+        h1 {
+            font-family: 'Reenie Beanie', cursive;
+            font-size: 5rem;
+            text-align: center;
+            color: #000;
+            margin-top: 0px;
+            margin-bottom: -15px;
+        }
+
+
+        /* Navigation Container */
+        nav {
+            margin-top: -15px;
+            display: flex;
+            justify-content: center;
+            font-family: 'Courier Prime', monospace;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #242423;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+            color: #000;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Aidan's Running</h1>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="strava.html">Strava</a></li>
+            <li><a href="gear.html">Gear</a></li>
+            <li><a href="routes.html">Routes</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <script>
+    // Update the array to include the 'colors/' folder path
+    const images = [
+        'colors/Blue Violet.png', 
+        'colors/Cyan.png', 
+        'colors/Dusty Rose.png', 
+        'colors/Gold 2.png',
+        'colors/Gold.png', 
+        'colors/Ocher.png', 
+        'colors/Rose Gold.png', 
+        'colors/Silver.png',
+        'colors/Soft Pink.png', 
+        'colors/Teal.png', 
+        'colors/Turquoise Green.png',
+    ];
+
+    const randomIndex = Math.floor(Math.random() * images.length);
+    const selectedImage = images[randomIndex];
+
+    // The rest of the logic remains exactly the same
+    document.body.style.backgroundImage = "url('" + selectedImage + "')";
+    </script>
+
+</body>
+</html>

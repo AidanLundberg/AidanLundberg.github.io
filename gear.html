@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gear - Aidan's Running</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Reenie+Beanie&display=swap" rel="stylesheet">
+
+    <style>
+        /* Header and Nav remain centered */
+        h1 {
+            font-family: 'Reenie Beanie', cursive;
+            font-size: 5rem;
+            text-align: center;
+            color: #000;
+            margin-top: 0px;
+            margin-bottom: -15px;
+        }
+
+        nav {
+            margin-top: -15px;
+            display: flex;
+            justify-content: center;
+            font-family: 'Courier Prime', monospace;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #242423;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        nav a.active {
+            text-decoration: underline;
+            color: #000;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+            color: #000;
+        }
+
+        /* NEW CONTENT ALIGNMENT */
+        .content {
+            text-align: left;         /* Forces text to start on the left */
+            font-family: 'Courier Prime', monospace;
+            margin-top: 0px;
+            padding-left: 10%;       /* Keeps text from touching the edge */
+            max-width: 700px;        /* Limits width for better readability */
+        }
+
+        /* Updated for tighter vertical spacing */
+        /* This adds space above every h2 EXCEPT the very first one in the list */
+        .content h2 {
+            font-size: 2rem;
+            margin-bottom: 2px;
+            margin-top: 30px; 
+        }
+
+        /* This ensures the very first header doesn't have a giant gap at the top */
+        .content h2:first-child {
+            margin-top: 0px;
+        }
+
+        .content p {
+            margin-top: 0px;    /* Removes the gap above 'Shoes' */
+            margin-bottom: 5px; /* Sets a consistent small gap between items */
+        }
+
+        /* Styling the indented sublist */
+        .gear-sublist {
+            list-style-type: "- "; /* Uses a dash instead of a bullet for a DIY feel */
+            padding-left: 40px;    /* This controls the indentation distance */
+            margin-top: -5px;      /* Keeps it tight to the paragraph above */
+            margin-bottom: 15px;
+            font-family: 'Courier Prime', monospace;
+        }
+
+        .gear-sublist li {
+            margin-bottom: 2px;    /* Matches your tight vertical spacing */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.3;
+            padding: 20px;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Aidan's Running</h1>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="strava.html">Strava</a></li>
+            <li><a href="gear.html" class="active">Gear</a></li>
+            <li><a href="routes.html">Routes</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <h2>CURRENT GEAR LIST</h2>
+        <p><strong>SHOES:</strong> Asics Gel-Nimbus 26, Asics GT-2000 12, Asics Gel-Kayano 32, Under Armour Velociti Elite 2, Nike StreakFly 2</p>
+        <p><strong>SPIKES:</strong> Nike Victory 2, Under Armour Shakedown Elite 3 MD, Nike Dragonfly</p>
+        <p><strong>WATCH:</strong> Coros Pace Pro</p>
+        <p><strong>BIKE:</strong> Vilano Shadow 3.0 Road Bike</p>
+
+        <h2 style="margin-top: 30px;">GEAR PURPOSES</h2>
+        <p><strong>TRAINING:</strong> Training shoes are split into a bunch of different categories.</p>
+        <ul class="gear-sublist">
+            <li><strong>Daily Trainers:</strong> I use the <strong>Asics GT-2000 12</strong>, <strong>Asics Gel-Kayano 32.</strong> Both are Stability shoes which just means that have a little more support under foot. I use the <strong>Asics GT-2000</strong> for a majority of my easy mileage (8:00-7:00mins/mile pace) while i'll use the <strong>Gel-Kayano</strong> for similar efforts just when I need more support under foot after hard workouts or long runs.</li>
+            <li><strong>Recovery Shoes:</strong> The only recovery shoe I use is the <strong>Asics Gel-Nimbus 26</strong>. Recovery shoes tend to have a higher stack height and a softer midsole foam to really cushion the impact of running. I primarily use this shoe for long runs and after hard workouts to not beat the body up any more than needed. </li>
+            <li><strong>Workout Shoes:</strong> Depending on the workout the shoe will change. Longer work, like tempos, fartleks, long intervals, i'll use a Carbon Plated Marathon shoe like the <strong>Nike Vaporfly 3</strong> or more recently the <strong>Under Armour Veliciti Elite 3.</strong> These will save your legs and really help with efficiency over long distances. Shorter work, like speed work, shorter track intervals, and even hills, I'll gravitate towards something with a lower stack height and weight to feel as fast as possible. This is where a shoe like the <strong>Nike Streakfly 2</strong> or a <strong>Spike</strong> would come into play.</li>
+            <li><strong>Spikes:</strong> Exactly like workout shoes spikes depend on what workout or race you're doing. During Cross Country I'll wear a distance spike like the <strong>Nike Dragonfly</strong>, or <strong>Under Armour Shakedown Elite 3 LD</strong>, because they are comfortable and have good traction on a variety of different surfaces. During the Track Season for Long Sprint, and Middle Distance events, I'll wear something fairly aggressive like a <strong>Nike Victory, Victory 2</strong>, or <strong>Under Armour Velocity Elite 3 MD</strong>. These are really going to get you on your toes and propell you forward has you put more force into the ground. Long Distance Track events I'll wear something similar to Cross Country in the <strong>Nike Dragonfly</strong> or <strong>Under Armour Shakedown Elite 3 LD</strong> for comfort and cushion.</li>
+        </ul>
+
+        
+    </div>
+
+    <script>
+    // Update the array to include the 'colors/' folder path
+    const images = [
+        'colors/Blue Violet.png', 
+        'colors/Cyan.png', 
+        'colors/Dusty Rose.png', 
+        'colors/Gold 2.png',
+        'colors/Gold.png', 
+        'colors/Ocher.png', 
+        'colors/Rose Gold.png', 
+        'colors/Silver.png',
+        'colors/Soft Pink.png', 
+        'colors/Teal.png', 
+        'colors/Turquoise Green.png',
+    ];
+
+    const randomIndex = Math.floor(Math.random() * images.length);
+    const selectedImage = images[randomIndex];
+
+    // The rest of the logic remains exactly the same
+    document.body.style.backgroundImage = "url('" + selectedImage + "')";
+    </script>
+
+</body>
+</html>
