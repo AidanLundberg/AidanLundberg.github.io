@@ -136,27 +136,20 @@
     </div>
 
     <script>
-    // Update the array to include the 'colors/' folder path
-    const images = [
-        'colors/Blue Violet.png', 
-        'colors/Cyan.png', 
-        'colors/Dusty Rose.png', 
-        'colors/Gold 2.png',
-        'colors/Gold.png', 
-        'colors/Ocher.png', 
-        'colors/Rose Gold.png', 
-        'colors/Silver.png',
-        'colors/Soft Pink.png', 
-        'colors/Teal.png', 
-        'colors/Turquoise Green.png',
-    ];
-
-    const randomIndex = Math.floor(Math.random() * images.length);
-    const selectedImage = images[randomIndex];
-
-    // The rest of the logic remains exactly the same
-    document.body.style.backgroundImage = "url('" + selectedImage + "')";
+        const images = [
+            'colors/Blue Violet.png', 
+            'colors/Cyan.png', 
+            'colors/Dusty Rose.png',
+            // ... add "colors/" to the start of every name
+        ];
+    
+        const randomIndex = Math.floor(Math.random() * images.length);
+        const selectedImage = images[randomIndex];
+    
+        // This remains the same, but selectedImage now contains the folder path
+        document.body.style.backgroundImage = "url('" + selectedImage + "')";
     </script>
 
 </body>
+
 </html>
