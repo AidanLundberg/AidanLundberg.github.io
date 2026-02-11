@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Be My Valentine?</title>
+    <style>
+        :root {
+            --pink: #ffc0cb;
+            --dark-pink: #d02090;
+            --hot-pink: #ff69b4;
+        }
+
+        body {
+            background-color: var(--pink);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container {
+            text-align: center;
+            z-index: 10;
+            background: rgba(255, 192, 203, 0.7);
+            padding: 40px;
+            border-radius: 30px;
+            backdrop-filter: blur(5px); /* Modern frosted glass effect */
+        }
+
+        h1 {
+            color: var(--dark-pink);
+            font-size: clamp(2rem, 8vw, 3.5rem); /* Responsive font size */
+            margin-bottom: 2rem;
+        }
+
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            min-height: 150px; /* Space for scaling */
+        }
+
+        button {
+            padding: 1rem 2rem;
+            font-size: 1.25rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        #yesBtn {
+            background-color: var(--hot-pink);
+            color: white;
+        }
+
+        #yesBtn:hover {
+            transform: scale(3);
+        }
+
+        #noBtn {
+            background-color: white;
+            color: var(--dark-pink);
+            z-index: 20;
+        }
+
+        /* Efficient CSS Animation for background hearts */
+        .heart {
+            position: absolute;
+            pointer-events: none;
+            user-select: none;
+            z-index: 1;
+            opacity: 0.5;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Tessa, will you be my valentine?</h1>
+        <div class="btn-group">
+            <button id="yesBtn">Yes</button>
+            <button id="noBtn">No</button>
+        </div>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById('noBtn');
+        const yesBtn = document.getElementById('yesBtn');
+
+        // 1. Efficient Heart Generation
+        const createHearts = (count) => {
+            const fragment = document.createDocumentFragment();
+            const hearts = ['❤️', '💖', '💝', '💕', '💗'];
+            
+            for (let i = 0; i < count; i++) {
+                const el = document.createElement('div');
+                el.className = 'heart';
+                el.textContent = hearts[Math.floor(Math.random() * hearts.length)];
+                el.style.left = `${Math.random() * 100}vw`;
+                el.style.top = `${Math.random() * 100}vh`;
+                el.style.fontSize = `${Math.random() * (2 - 1) + 1}rem`;
+                el.style.animationDelay = `${Math.random() * 5}s`;
+                fragment.appendChild(el);
+            }
+            document.body.appendChild(fragment);
+        };
+
+        // 2. Optimized Movement Logic
+        const moveNoButton = () => {
+            if (noBtn.style.position !== 'absolute') {
+                noBtn.style.position = 'absolute';
+            }
+
+            const padding = 20;
+            // Calculate boundaries so it stays on screen
+            const maxX = window.innerWidth - noBtn.offsetWidth - padding;
+            const maxY = window.innerHeight - noBtn.offsetHeight - padding;
+
+            const randomX = Math.max(padding, Math.floor(Math.random() * maxX));
+            const randomY = Math.max(padding, Math.floor(Math.random() * maxY));
+
+            noBtn.style.left = `${randomX}px`;
+            noBtn.style.top = `${randomY}px`;
+        };
+
+        // Event Listeners
+        noBtn.addEventListener('mouseover', moveNoButton);
+        noBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault(); // Prevents clicking on mobile
+            moveNoButton();
+        });
+
+        yesBtn.addEventListener('click', () => {
+            // Replace this with your next step!
+            document.querySelector('.container').innerHTML = `
+                <h1 style="font-size: 4rem;">❤️ Yay! ❤️</h1>
+                <p style="color: #d02090; font-size: 1.5rem;">I knew you'd say yes, Tessa!</p>
+            `;
+        });
+
+        // Initialize
+        createHearts(25);
+    </script>
+</body>
+</html>
