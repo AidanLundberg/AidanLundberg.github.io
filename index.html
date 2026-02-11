@@ -31,7 +31,6 @@
             color: var(--dark-pink);
             font-size: clamp(2rem, 8vw, 3.5rem);
             margin-bottom: 2rem;
-            pointer-events: none; /* Allows hearts to be seen behind text */
         }
 
         .btn-group {
@@ -60,20 +59,19 @@
         }
 
         #yesBtn:hover {
-            transform: scale(4); /* Made it even bigger */
+            transform: scale(4);
         }
 
         #noBtn {
             background-color: white;
             color: var(--dark-pink);
-            /* Position fixed ensures it stays relative to the screen, not the container */
             z-index: 1000; 
         }
 
         .heart {
             position: absolute;
             pointer-events: none;
-            z-index: 5; /* Hearts now float over text and buttons per your request */
+            z-index: 5;
             opacity: 0.7;
             animation: float 5s infinite ease-in-out;
         }
@@ -82,11 +80,19 @@
             0%, 100% { transform: translateY(0) rotate(0deg); }
             50% { transform: translateY(-30px) rotate(20deg); }
         }
+
+        /* Success screen styling */
+        .success-gif {
+            width: 300px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div id="main-content" class="container">
         <h1>Tessa, will you be my valentine?</h1>
         <div class="btn-group">
             <button id="yesBtn">Yes</button>
@@ -97,8 +103,9 @@
     <script>
         const noBtn = document.getElementById('noBtn');
         const yesBtn = document.getElementById('yesBtn');
+        const mainContent = document.getElementById('main-content');
 
-        // 1. Improved Heart Generation (Now covers the whole screen)
+        // 1. Heart Generation
         const createHearts = (count) => {
             const hearts = ['❤️', '💖', '💝', '💕', '💗'];
             for (let i = 0; i < count; i++) {
@@ -113,39 +120,32 @@
             }
         };
 
-        // 2. Solidified Movement Logic
+        // 2. Button Movement
         const moveNoButton = () => {
-            // Use fixed to ensure it's always visible relative to the viewport
             noBtn.style.position = 'fixed';
-            
-            const padding = 50; // Extra padding to keep it away from the very edges
-            
-            // Calculate available space in the viewport
+            const padding = 50;
             const maxX = window.innerWidth - noBtn.offsetWidth - padding;
             const maxY = window.innerHeight - noBtn.offsetHeight - padding;
-
-            // Generate new coordinates
             const randomX = Math.max(padding, Math.floor(Math.random() * maxX));
             const randomY = Math.max(padding, Math.floor(Math.random() * maxY));
-
             noBtn.style.left = randomX + 'px';
             noBtn.style.top = randomY + 'px';
         };
 
         noBtn.addEventListener('mouseover', moveNoButton);
-        noBtn.addEventListener('touchstart', (e) => {
-            e.preventDefault();
-            moveNoButton();
-        });
 
+        // 3. Success Logic with GIF
         yesBtn.addEventListener('click', () => {
-            document.body.innerHTML = `
-                <div style="text-align:center; width:100%;">
-                    <h1 style="font-size: 5rem; color: #d02090;">❤️ Success! ❤️</h1>
-                    <p style="font-size: 2rem; color: #ff69b4;">I knew you couldn't say no!</p>
-                </div>
+            // Replace this URL with any GIF you like!
+            const gifUrl = "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExc3ZkNTl3YWExc2cwbjgyYjQ1eTV6MGdlYnc1ZW9oY29jbzIyc3VteSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/nbQ4jhfx9YKYbOTL6s/giphy.gif";
+            
+            mainContent.innerHTML = `
+                <h1 style="font-size: 4rem; color: #d02090;">❤️ Yay! ❤️</h1>
+                <img src="${gifUrl}" alt="Happy Cat" class="success-gif">
+                <p style="font-size: 1.8rem; color: #ff69b4; margin-top: 20px;">I knew you'd say yes, Tessa!</p>
             `;
-            createHearts(50); // Explode with more hearts
+            
+            createHearts(40); // Add an explosion of hearts
         });
 
         createHearts(30);
